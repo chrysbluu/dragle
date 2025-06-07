@@ -1,0 +1,18 @@
+body {
+  font-family: sans-serif;
+  text-align: center;
+  background: #fff0f5;
+  color: #333;
+}
+input {
+  padding: 10px;
+  font-size: 1em;
+}
+#result {
+  margin-top: 20px;
+  font-size: 1.2em;
+}
+img {
+  margin-top: 10px;
+  border-radius: 10px;
+}
