@@ -5,7 +5,7 @@ const queens = [
     "placement": 1,
     "wins": 3,
     "country": "Canada",
-    "image": "images/queen1.jpg"
+    "image": "images/IcesisCoutureCDR2.png"
   },
   {
     "name": "Cheddar Gorgeous",
@@ -13,7 +13,7 @@ const queens = [
     "placement": 2,
     "wins": 4,
     "country": "UK",
-    "image": "images/queen2.jpg"
+    "image": "images/CheddarGorgeousDRUK4.png"
   },
   {
     "name": "Latrice Royale",
@@ -21,7 +21,7 @@ const queens = [
     "placement": 4,
     "wins": 2,
     "country": "USA",
-    "image": "images/queen3.jpg"
+    "image": "images/LatriceRoyaleAS4.png"
   },
   
 ];
