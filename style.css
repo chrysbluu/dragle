@@ -1,7 +1,8 @@
 body {
   font-family: sans-serif;
   padding: 20px;
-  background: (images/uzT4PZL.jpg);
+  background-image: url(images/uzT4PZL.jpg);
+  background: #fffff;
 }
 
 table {
