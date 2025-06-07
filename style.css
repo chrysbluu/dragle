@@ -7,7 +7,7 @@ body {
   /* Other background properties */
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
+  background-position: top to bottom;
 }
 input {
   padding: 10px;
