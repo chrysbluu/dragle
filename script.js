@@ -1,29 +1,63 @@
-function checkGuess() {
-  const input = document.getElementById("guessInput").value.trim();
-  const guess = queens.find(q => q.name.toLowerCase() === input.toLowerCase());
+const queensData = {
+  "Sasha Colby": {
+    season: "US15",
+    placement: "1st",
+    age: 37,
+    country: "USA"
+  },
+  "Jimbo": {
+    season: "CA1",
+    placement: "4th",
+    age: 40,
+    country: "Canada"
+  },
+  "Tia Kofi": {
+    season: "UK2",
+    placement: "7th",
+    age: 33,
+    country: "UK"
+  }
+};
 
-  const resultDiv = document.getElementById("result");
-  if (!guess) {
-    resultDiv.innerHTML = "Queen not found. Try again!";
+const correctQueen = "Sasha Colby";
+let guessNumber = 1;
+
+document.getElementById("guessForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+  const guessName = document.getElementById("queen").value.trim();
+
+  if (!queensData[guessName]) {
+    alert("Queen not in database.");
     return;
   }
 
-  let feedback = `<h3>${guess.name}</h3><img src="${guess.image}" alt="${guess.name}" width="200"><ul>`;
-  feedback += `<li><strong>Season:</strong> ${guess.season === answer.season ? "✅" : `❌ (${guess.season})`}</li>`;
-  feedback += `<li><strong>Placement:</strong> ${guess.placement === answer.placement ? "✅" : `⬆️⬇️ (${guess.placement})`}</li>`;
-  feedback += `<li><strong>Wins:</strong> ${guess.wins === answer.wins ? "✅" : `(${guess.wins})`}</li>`;
-  feedback += `<li><strong>Country:</strong> ${guess.country === answer.country ? "✅" : `❌ (${guess.country})`}</li>`;
-  feedback += `</ul>`;
+  const guess = queensData[guessName];
+  const correct = queensData[correctQueen];
 
-  resultDiv.innerHTML = feedback;
+  const table = document.getElementById("guessTable").getElementsByTagName("tbody")[0];
+  const row = table.insertRow();
 
-  if (guess.name === answer.name) {
-    resultDiv.innerHTML += `<p>🎉 You guessed it!</p><button onclick="newRound()">New Queen</button>`;
+  function colorCell(cell, val, correctVal) {
+    if (val === correctVal) {
+      cell.classList.add("green");
+    } else if (Object.values(correct).includes(val)) {
+      cell.classList.add("yellow");
+    } else {
+      cell.classList.add("gray");
+    }
+    cell.textContent = val;
   }
-}
 
-function newRound() {
-  answer = queens[Math.floor(Math.random() * queens.length)];
-  document.getElementById("guessInput").value = "";
-  document.getElementById("result").innerHTML = "";
-}
+  row.insertCell().textContent = guessNumber++;
+  colorCell(row.insertCell(), guessName, correctQueen);
+  colorCell(row.insertCell(), guess.season, correct.season);
+  colorCell(row.insertCell(), guess.placement, correct.placement);
+  colorCell(row.insertCell(), guess.age, correct.age);
+  colorCell(row.insertCell(), guess.country, correct.country);
+
+  document.getElementById("queen").value = "";
+
+  if (guessName === correctQueen) {
+    alert("🎉 You got it!");
+  }
+});

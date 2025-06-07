@@ -1,23 +1,23 @@
 body {
-  font-family: Helvetica Neue Extra Black Condensed.;
+  font-family: sans-serif;
+  padding: 20px;
+  background: #f9f9f9;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 20px;
+}
+
+th, td {
   text-align: center;
-  background: /uzT4PZL.jpg;
-  color: #333;
-  background-image: url('images/uzT4PZL.jpg');
-  /* Other background properties */
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: top to bottom;
-}
-input {
   padding: 10px;
-  font-size: 1em;
+  border: 1px solid #ccc;
+  font-weight: bold;
+  border-radius: 4px;
 }
-#result {
-  margin-top: 70px;
-  font-size: 1.2em;
-}
-img {
-  margin-top: 10px;
-  border-radius: 10px;
-}
+
+.green { background-color: #4caf50; color: white; }
+.yellow { background-color: #ffeb3b; color: black; }
+.gray { background-color: #e0e0e0; color: black; }
