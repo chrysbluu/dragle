@@ -1,4 +1,3 @@
-// Placeholder queen data
 const queens = {
   "Sasha Colby": { season: "US15", placement: "1", country: "USA" },
   "Symone": { season: "US13", placement: "1", country: "USA" },
@@ -9,8 +8,8 @@ const correctQueen = "Sasha Colby";
 let tries = 0;
 let maxTries = 5;
 
-// Fill dropdown (datalist)
 window.onload = () => {
+  // populate datalist AFTER DOM is ready
   const datalist = document.getElementById("queen-options");
   Object.keys(queens).forEach(name => {
     const option = document.createElement("option");
@@ -19,20 +18,16 @@ window.onload = () => {
   });
 };
 
-// Main guess function
 function submitGuess() {
-  const input = document.getElementById("guess-input");
-  const guess = input.value.trim();
+  const guess = document.getElementById("guess-input").value;
   const table = document.getElementById("guess-table");
   const triesLeft = document.getElementById("tries-left");
-  const result = document.getElementById("game-result");
 
   if (!queens[guess] || tries >= maxTries) return;
 
   const data = queens[guess];
   const correct = queens[correctQueen];
 
-  // Create row of feedback
   const row = document.createElement("div");
   row.innerHTML = `
     <p>
@@ -44,20 +39,17 @@ function submitGuess() {
   `;
   table.appendChild(row);
 
-  // Update try count
   tries++;
   triesLeft.innerText = \`Tries: \${tries}/\${maxTries}\`;
 
-  // Check win or lose
   if (guess === correctQueen) {
-    result.innerText = "🎉 Correct! You win!";
+    document.getElementById("game-result").innerText = "🎉 Correct! You win!";
   } else if (tries >= maxTries) {
-    result.innerText = "😢 Out of tries! The queen was " + correctQueen;
+    document.getElementById("game-result").innerText = "😢 Out of tries! The queen was " + correctQueen;
   }
 
-  // Clear input
-  input.value = "";
+  document.getElementById("guess-input").value = "";
 }
 
-// Make function global so button can use it
+// make it accessible to the HTML onclick
 window.submitGuess = submitGuess;
