@@ -18,6 +18,7 @@ Object.keys(queens).forEach(name => {
 });
 
 function submitGuess() {
+  window.submitGuess = submitGuess;
   const guess = document.getElementById("guess-input").value;
   const table = document.getElementById("guess-table");
   const triesLeft = document.getElementById("tries-left");
