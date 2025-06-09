@@ -227,6 +227,28 @@ let streak = parseInt(localStorage.getItem("streak") || "0");
 let highScore = parseInt(localStorage.getItem("highScore") || "0");
 let dailyMode = false;
 
+const countryFilter = document.getElementById("country-filter");
+const datalist = document.getElementById("queen-options");
+
+function updateQueenDatalist(selectedCountry) {
+  datalist.innerHTML = "";
+  Object.entries(queens)
+    .filter(([name, data]) =>
+      selectedCountry === "all" || data.country === selectedCountry
+    )
+    .forEach(([name]) => {
+      const option = document.createElement("option");
+      option.value = name;
+      datalist.appendChild(option);
+    });
+}
+
+updateQueenDatalist("all");
+
+countryFilter.addEventListener("change", (e) => {
+  updateQueenDatalist(e.target.value);
+});
+
 window.addEventListener("DOMContentLoaded", () => {
   const datalist = document.getElementById("queen-options");
   Object.keys(queens).forEach(name => {
