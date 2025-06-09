@@ -4,8 +4,7 @@ const queens = {
   "Priyanka": { season: "Canada1", placement: "1", country: "🇨🇦" },
 };
 
-const queenNames = Object.keys(queens);
-const correctQueen = queenNames[Math.floor(Math.random() * queenNames.length)];
+let correctQueen = "Sasha Colby";
 let tries = 0;
 let maxTries = 5;
 let streak = parseInt(localStorage.getItem("streak") || "0");
@@ -55,16 +54,9 @@ function submitGuess() {
   const data = queens[guess];
   const correct = queens[correctQueen];
 
-  <span class="cell" style="background-color: ${data.season === correct.season ? '#9CCC65' : '#E57373'}">
-  ${data.season}(data.season > correct.season ? '🔽' : '🔼');
-</span>
-  <span class="cell" style="background-color: ${data.placement === correct.placement ? '#9CCC65' : '#E57373'}">
-  ${data.placement}(data.placement > correct.placement ? '🔽' : '🔼');
-</span>
-  <span class="cell" style="background-color: ${data.country === correct.country ? '#9CCC65' : '#E57373'}">
-  ${data.country}
-</span>
-
+  const seasonHint = data.season === correct.season ? '🟩' : (data.season > correct.season ? '🔽' : '🔼');
+  const placeHint = data.placement === correct.placement ? '🟩' : '🟥';
+  const countryHint = data.country === correct.country ? '🟩' : '🟥';
 
   const row = document.createElement("div");
   row.innerHTML = `
@@ -93,4 +85,3 @@ function submitGuess() {
   }
 
   document.getElementById("guess-input").value = "";
-}
