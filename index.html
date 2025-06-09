@@ -55,5 +55,16 @@
   <button id="next-round-btn" style="display: none;">Next Round</button>
 
   <script src="script.js"></script>
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("submit-btn").addEventListener("click", () => {
+      alert("Submit button clicked!");
+    });
+    document.getElementById("mode-toggle").addEventListener("click", () => {
+      alert("Mode toggle clicked!");
+    });
+  });
+</script>
+
 </body>
 </html>
