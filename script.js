@@ -4,29 +4,46 @@ const queens = {
   "Priyanka": { season: "Canada1", placement: "1", country: "🇨🇦" },
 };
 
-let correctQueen = "Sasha Colby";
+const queenNames = Object.keys(queens);
+let correctQueen = "";
 let tries = 0;
-let maxTries = 5;
+const maxTries = 5;
 let streak = parseInt(localStorage.getItem("streak") || "0");
 let highScore = parseInt(localStorage.getItem("highScore") || "0");
 let dailyMode = false;
 
 window.addEventListener("DOMContentLoaded", () => {
+  // Fill datalist
   const datalist = document.getElementById("queen-options");
-  Object.keys(queens).forEach(name => {
+  queenNames.forEach(name => {
     const option = document.createElement("option");
     option.value = name;
     datalist.appendChild(option);
   });
 
-  updateStats();
+  // Set up mode toggle
+  const toggle = document.getElementById("mode-toggle");
+  if (toggle) toggle.addEventListener("click", toggleMode);
+
+  // Submit button
   document.getElementById("submit-btn").addEventListener("click", submitGuess);
-  document.getElementById("mode-toggle").addEventListener("click", toggleMode);
+
+  // Pick queen
+  setCorrectQueen();
+  updateStats();
 });
 
-function updateStats() {
-  document.getElementById("streak-info").innerText = `🔥 Streak: ${streak} | 🏆 High Score: ${highScore}`;
-  document.getElementById("tries-left").innerText = `Tries: ${tries}/${maxTries}`;
+function setCorrectQueen() {
+  if (dailyMode) {
+    const today = new Date().toISOString().split('T')[0];
+    let seed = 0;
+    for (let i = 0; i < today.length; i++) {
+      seed += today.charCodeAt(i);
+    }
+    correctQueen = queenNames[seed % queenNames.length];
+  } else {
+    correctQueen = queenNames[Math.floor(Math.random() * queenNames.length)];
+  }
 }
 
 function toggleMode() {
@@ -37,11 +54,16 @@ function toggleMode() {
 
 function resetGame() {
   tries = 0;
-  correctQueen = "Sasha Colby"; // Replace with real random/daily logic
+  setCorrectQueen();
   document.getElementById("guess-input").value = "";
   document.getElementById("guess-table").innerHTML = "";
   document.getElementById("game-result").innerText = "";
   updateStats();
+}
+
+function updateStats() {
+  document.getElementById("streak-info").innerText = `🔥 Streak: ${streak} | 🏆 High Score: ${highScore}`;
+  document.getElementById("tries-left").innerText = `Tries: ${tries}/${maxTries}`;
 }
 
 function submitGuess() {
@@ -54,16 +76,27 @@ function submitGuess() {
   const data = queens[guess];
   const correct = queens[correctQueen];
 
-  const seasonHint = data.season === correct.season ? '🟩' : (data.season > correct.season ? '🔽' : '🔼');
-  const placeHint = data.placement === correct.placement ? '🟩' : '🟥';
-  const countryHint = data.country === correct.country ? '🟩' : '🟥';
+  // Hints
+  const seasonHint = data.season > correct.season ? "🔽" : data.season < correct.season ? "🔼" : "";
+  const placeHint = parseInt(data.placement) > parseInt(correct.placement) ? "🔽" :
+                    parseInt(data.placement) < parseInt(correct.placement) ? "🔼" : "";
+  const countryHint = ""; // Just use color
 
+  // Row with colored hints
   const row = document.createElement("div");
   row.innerHTML = `
-    <p><strong>${guess}</strong> |
-    Season: ${data.season} ${seasonHint} |
-    Placement: ${data.placement} ${placeHint} |
-    Country: ${data.country} ${countryHint}</p>
+    <div class="guess-row">
+      <span class="cell">${guess}</span>
+      <span class="cell" style="background-color: ${data.season === correct.season ? '#9CCC65' : '#E57373'}">
+        ${data.season} ${seasonHint}
+      </span>
+      <span class="cell" style="background-color: ${data.placement === correct.placement ? '#9CCC65' : '#E57373'}">
+        ${data.placement} ${placeHint}
+      </span>
+      <span class="cell" style="background-color: ${data.country === correct.country ? '#9CCC65' : '#E57373'}">
+        ${data.country}
+      </span>
+    </div>
   `;
   table.appendChild(row);
 
@@ -85,3 +118,4 @@ function submitGuess() {
   }
 
   document.getElementById("guess-input").value = "";
+}
