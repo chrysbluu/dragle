@@ -1,7 +1,7 @@
 const queens = {
-  "Sasha Colby": { season: "US15", placement: "1", country: "🇺🇸" },
+  "Sasha Colby": { season: "US15", placement: "1", country: ":american_flag:" },
   "Symone": { season: "US13", placement: "1", country: "🇺🇸" },
-  "Priyanka": { season: "Canada1", placement: "1", country: "🇨🇦" },
+  "Priyanka": { season: "Canada1", placement: "1", country: ":canadian_flag:" },
 };
 
 let correctQueen = "Sasha Colby";
