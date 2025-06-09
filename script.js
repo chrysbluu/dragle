@@ -285,11 +285,20 @@ countryFilter.addEventListener("change", (e) => {
   row.appendChild(cell);
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+  // Setup initial datalist
+  updateQueenDatalist("all");
 
-  updateStats();
+  // Setup event listeners
+  countryFilter.addEventListener("change", (e) => {
+    updateQueenDatalist(e.target.value);
+  });
+
   document.getElementById("submit-btn").addEventListener("click", submitGuess);
   document.getElementById("mode-toggle").addEventListener("click", toggleMode);
   document.getElementById("next-round-btn").addEventListener("click", nextRound);
+
+  updateStats();
 });
 
 function updateStats() {
