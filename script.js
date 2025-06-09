@@ -14,7 +14,7 @@ const queens = {
  "Pandora Boxx": { season: "US2", placement: "5", country: "🇺🇸", image: "" },
  "Jessica Wild": { season: "US2", placement: "6", country: "🇺🇸", image: "" },
  "Sahara Davenport": { season: "US2", placement: "7", country: "🇺🇸", image: "" },
- "Morgan McMicaels": { season: "US2", placement: "8", country: "🇺🇸", image: "" },
+ "Morgan McMichaels": { season: "US2", placement: "8", country: "🇺🇸", image: "" },
  "Kylie Sonique Love": { season: "US2", placement: "9", country: "🇺🇸", image: "" },
  "Mystique Summers Madison": { season: "US2", placement: "10", country: "🇺🇸", image: "" },
  "Nicole Paige Brooks": { season: "US2", placement: "11", country: "🇺🇸", image: "" },
