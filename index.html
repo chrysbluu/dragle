@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Drag Race Wordle</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>🎀 Drag Race Wordle</h1>
+
+  <div id="game-controls">
+    <input list="queen-options" id="guess-input" placeholder="Type or pick a queen..." />
+    <datalist id="queen-options"></datalist>
+    <button id="submit-btn">Submit</button>
+    <button id="mode-toggle">Switch to Daily Mode</button>
+    <p id="streak-info"></p>
+    <p id="tries-left"></p>
+  </div>
+
+  <table id="guess-table">
+    <thead>
+      <tr>
+        <th>Queen</th>
+        <th>Season</th>
+        <th>Placement</th>
+        <th>Country</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <p id="game-result"></p>
+  <button id="next-round-btn" style="display: none;">Next Round</button>
+
+  <script src="script.js"></script>
+</body>
+</html>
