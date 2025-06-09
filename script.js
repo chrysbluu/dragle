@@ -335,15 +335,70 @@ function submitGuess() {
   const correct = queens[correctQueen];
 
   const row = document.createElement("tr");
-row.innerHTML = `
-  <td><img src="${data.image}" alt="${guess}" class="queen-img" /></td>
-  <td>${guess}</td>
-  <td class="cell ${data.season === correct.season ? 'correct' : 'incorrect'}">${data.season}</td>
-  <td class="cell ${data.placement === correct.placement ? 'correct' : 'incorrect'}">${data.placement}</td>
-  <td class="cell ${data.country === correct.country ? 'correct' : 'incorrect'}">${data.country}</td>
-`;
-tableBody.appendChild(row);
 
+  // Image cell
+  const imgCell = document.createElement("td");
+  const img = document.createElement("img");
+  img.src = data.image || ""; // fallback if no image
+  img.alt = guess;
+  img.className = "queen-img";
+  imgCell.appendChild(img);
+  row.appendChild(imgCell);
+
+  // Name cell
+  const nameCell = document.createElement("td");
+  nameCell.textContent = guess;
+  row.appendChild(nameCell);
+
+  // Attributes to show with arrow hints
+  ["season", "placement", "country"].forEach((attr) => {
+    const cell = document.createElement("td");
+    let value = data[attr];
+    const correctValue = correct[attr];
+
+    // Add arrows for season and placement
+    if (attr === "season") {
+      const guessedNum = parseInt(value.replace(/[^\d]/g, ""));
+      const correctNum = parseInt(correctValue.replace(/[^\d]/g, ""));
+      if (guessedNum > correctNum) {
+        value += " ⬆️";
+      } else if (guessedNum < correctNum) {
+        value += " ⬇️";
+      }
+    }
+
+    if (attr === "placement") {
+      // handle cases like "3/4"
+      const parsePlacement = (p) => {
+        if (p.includes("/")) {
+          return Math.min(...p.split("/").map(Number));
+        }
+        return parseInt(p);
+      };
+      const guessedNum = parsePlacement(value);
+      const correctNum = parsePlacement(correctValue);
+
+      if (guessedNum > correctNum) {
+        value += " ⬇️"; // lower placement number = better rank
+      } else if (guessedNum < correctNum) {
+        value += " ⬆️";
+      }
+    }
+
+    // Set background color based on raw value comparison (without arrows)
+    if (data[attr] === correctValue) {
+      cell.style.backgroundColor = "#90ee90"; // green
+      cell.classList.add("correct");
+    } else {
+      cell.style.backgroundColor = "#f08080"; // red
+      cell.classList.add("incorrect");
+    }
+
+    cell.textContent = value;
+    row.appendChild(cell);
+  });
+
+  tableBody.appendChild(row);
 
   tries++;
   updateStats();
@@ -370,6 +425,7 @@ tableBody.appendChild(row);
 
   document.getElementById("guess-input").value = "";
 }
+
 
 function nextRound() {
   correctQueen = queenNames[Math.floor(Math.random() * queenNames.length)];
