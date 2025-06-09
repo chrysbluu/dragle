@@ -1,5 +1,5 @@
 const queens = {
- "Bebe Zahara Benet": { season: "US1", placement: "1", country: "🇺🇸", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/480px-No_image_available.svg.png" },
+ "Bebe Zahara Benet": { season: "US1", placement: "1", country: "🇺🇸", image: "" },
  "Nina Flowers": { season: "US1", placement: "2", country: "🇺🇸", image: "" },
  "Rebecca Glasscock": { season: "US1", placement: "3", country: "🇺🇸", image: "" },
  "Shannel": { season: "US1", placement: "4", country: "🇺🇸", image: "" },
