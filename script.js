@@ -54,9 +54,16 @@ function submitGuess() {
   const data = queens[guess];
   const correct = queens[correctQueen];
 
-  const seasonHint = data.season === correct.season ? '🟩' : (data.season > correct.season ? '🔽' : '🔼');
-  const placeHint = data.placement === correct.placement ? '🟩' : '🟥';
-  const countryHint = data.country === correct.country ? '🟩' : '🟥';
+  <span class="cell" style="background-color: ${data.season === correct.season ? '#9CCC65' : '#E57373'}">
+  ${data.season}(data.season > correct.season ? '🔽' : '🔼');
+</span>
+  <span class="cell" style="background-color: ${data.placement === correct.placement ? '#9CCC65' : '#E57373'}">
+  ${data.placement}(data.placement > correct.placement ? '🔽' : '🔼');
+</span>
+  <span class="cell" style="background-color: ${data.country === correct.country ? '#9CCC65' : '#E57373'}">
+  ${data.country}
+</span>
+
 
   const row = document.createElement("div");
   row.innerHTML = `
