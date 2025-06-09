@@ -7,7 +7,7 @@ const queens = {
  "Jade": { season: "US1", placement: "6", country: "🇺🇸", image: "" },
  "Akashia": { season: "US1", placement: "7", country: "🇺🇸", image: "" },
  "Tammie Brown": { season: "US1", placement: "8", country: "🇺🇸", image: "" },
- "Victoria Porkchop Parker": { season: "US1", placement: "9", country: "🇺🇸", image: "" },
+ "Victoria Porkchop Parker": { season: "US1", placement: "9", country: "🇺🇸", image: url("images/US/s1/Victoria Porkchop Parker") },
  "Raven": { season: "US2", placement: "2", country: "🇺🇸", image: "" },
  "Jujubee": { season: "US2", placement: "3", country: "🇺🇸", image: "" },
  "Tatianna": { season: "US2", placement: "4", country: "🇺🇸", image: "" },
