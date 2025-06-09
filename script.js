@@ -3,6 +3,17 @@ const queens = {
   "Symone": { season: "US13", placement: "1", country: "🇺🇸" },
   "Priyanka": { season: "Canada1", placement: "1", country: "🇨🇦" },
 };
+const queenNames = Object.keys(queens);
+
+// Hash today's date into a consistent index
+const today = new Date().toISOString().split('T')[0]; // e.g. "2025-06-09"
+let seed = 0;
+for (let i = 0; i < today.length; i++) {
+  seed += today.charCodeAt(i);
+}
+
+// Select the daily queen
+const correctQueen = queenNames[seed % queenNames.length];
 
 const queenNames = Object.keys(queens);
 const correctQueen = queenNames[Math.floor(Math.random() * queenNames.length)];
