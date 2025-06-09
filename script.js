@@ -243,12 +243,6 @@ function updateQueenDatalist(selectedCountry) {
     });
 }
 
-updateQueenDatalist("all");
-
-countryFilter.addEventListener("change", (e) => {
-  updateQueenDatalist(e.target.value);
-});
-
 ["name", "season", "placement", "country"].forEach((attr) => {
   const cell = document.createElement("td");
   let value = guessed[attr];
