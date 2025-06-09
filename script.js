@@ -1,33 +1,38 @@
-
+// Placeholder queen data
 const queens = {
   "Sasha Colby": { season: "US15", placement: "1", country: "USA" },
   "Symone": { season: "US13", placement: "1", country: "USA" },
   "Priyanka": { season: "Canada1", placement: "1", country: "Canada" },
-  // Add more once data is parsed
 };
 
 const correctQueen = "Sasha Colby";
 let tries = 0;
 let maxTries = 5;
 
-const datalist = document.getElementById("queen-options");
-Object.keys(queens).forEach(name => {
-  const option = document.createElement("option");
-  option.value = name;
-  datalist.appendChild(option);
-});
+// Fill dropdown (datalist)
+window.onload = () => {
+  const datalist = document.getElementById("queen-options");
+  Object.keys(queens).forEach(name => {
+    const option = document.createElement("option");
+    option.value = name;
+    datalist.appendChild(option);
+  });
+};
 
+// Main guess function
 function submitGuess() {
-  window.submitGuess = submitGuess;
-  const guess = document.getElementById("guess-input").value;
+  const input = document.getElementById("guess-input");
+  const guess = input.value.trim();
   const table = document.getElementById("guess-table");
   const triesLeft = document.getElementById("tries-left");
+  const result = document.getElementById("game-result");
 
   if (!queens[guess] || tries >= maxTries) return;
 
   const data = queens[guess];
   const correct = queens[correctQueen];
 
+  // Create row of feedback
   const row = document.createElement("div");
   row.innerHTML = `
     <p>
@@ -39,14 +44,20 @@ function submitGuess() {
   `;
   table.appendChild(row);
 
+  // Update try count
   tries++;
   triesLeft.innerText = \`Tries: \${tries}/\${maxTries}\`;
 
+  // Check win or lose
   if (guess === correctQueen) {
-    document.getElementById("game-result").innerText = "🎉 Correct! You win!";
+    result.innerText = "🎉 Correct! You win!";
   } else if (tries >= maxTries) {
-    document.getElementById("game-result").innerText = "😢 Out of tries! The queen was " + correctQueen;
+    result.innerText = "😢 Out of tries! The queen was " + correctQueen;
   }
 
-  document.getElementById("guess-input").value = "";
+  // Clear input
+  input.value = "";
 }
+
+// Make function global so button can use it
+window.submitGuess = submitGuess;
