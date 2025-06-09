@@ -304,13 +304,21 @@ function submitGuess() {
   const row = document.createElement("tr");
 
   // Image cell
-  const imgCell = document.createElement("td");
-  const img = document.createElement("img");
-  img.src = data.image || ""; // fallback if no image
-  img.alt = guess;
-  img.className = "queen-img";
-  imgCell.appendChild(img);
-  row.appendChild(imgCell);
+const imgCell = document.createElement("td");
+const img = document.createElement("img");
+
+if (data.image && typeof data.image === "string" && data.image.trim() !== "") {
+  img.src = data.image;
+} else {
+  // fallback to placeholder
+  img.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/480px-No_image_available.svg.png";
+}
+
+img.alt = guess;
+img.className = "queen-img";
+imgCell.appendChild(img);
+row.appendChild(imgCell);
+
 
   // Name cell
   const nameCell = document.createElement("td");
