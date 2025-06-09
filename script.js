@@ -4,7 +4,8 @@ const queens = {
   "Priyanka": { season: "Canada1", placement: "1", country: "🇨🇦" },
 };
 
-let correctQueen = "Sasha Colby";
+const queenNames = Object.keys(queens);
+const correctQueen = queenNames[Math.floor(Math.random() * queenNames.length)];
 let tries = 0;
 let maxTries = 5;
 let streak = parseInt(localStorage.getItem("streak") || "0");
