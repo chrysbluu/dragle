@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dragle</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="overlay">
+    <header>
+      <h1>👑 Dragle 👑</h1>
+      <div class="mode-switch">
+        <button id="mode-toggle">Switch to Daily Mode</button>
+        <p id="streak-info">🔥 Streak: 0 | 🏆 High Score: 0</p>
+      </div>
+    </header>
+
+    <div class="guess-section">
+      <input list="queen-options" id="guess-input" placeholder="Type or select a queen" />
+      <datalist id="queen-options"></datalist>
+      <button id="submit-btn">Submit Guess</button>
+    </div>
+
+    <p id="tries-left"></p>
+    <div id="guess-table"></div>
+    <p id="game-result"></p>
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
