@@ -69,13 +69,15 @@ function submitGuess() {
   const correct = queens[correctQueen];
 
   const row = document.createElement("tr");
-  row.innerHTML = `
-    <td>${guess}</td>
-    <td class="cell ${data.season === correct.season ? 'correct' : 'incorrect'}">${data.season}</td>
-    <td class="cell ${data.placement === correct.placement ? 'correct' : 'incorrect'}">${data.placement}</td>
-    <td class="cell ${data.country === correct.country ? 'correct' : 'incorrect'}">${data.country}</td>
-  `;
-  tableBody.appendChild(row);
+row.innerHTML = `
+  <td><img src="${data.image}" alt="${guess}" class="queen-img" /></td>
+  <td>${guess}</td>
+  <td class="cell ${data.season === correct.season ? 'correct' : 'incorrect'}">${data.season}</td>
+  <td class="cell ${data.placement === correct.placement ? 'correct' : 'incorrect'}">${data.placement}</td>
+  <td class="cell ${data.country === correct.country ? 'correct' : 'incorrect'}">${data.country}</td>
+`;
+tableBody.appendChild(row);
+
 
   tries++;
   updateStats();
