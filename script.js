@@ -328,9 +328,9 @@ function submitGuess() {
       const guessedNum = parseInt(value.replace(/[^\d]/g, ""));
       const correctNum = parseInt(correctValue.replace(/[^\d]/g, ""));
       if (guessedNum > correctNum) {
-        value += " ⬆️";
-      } else if (guessedNum < correctNum) {
         value += " ⬇️";
+      } else if (guessedNum < correctNum) {
+        value += " ⬆️";
       }
     }
 
@@ -346,9 +346,9 @@ function submitGuess() {
       const correctNum = parsePlacement(correctValue);
 
       if (guessedNum > correctNum) {
-        value += " ⬇️"; // lower placement number = better rank
+        value += " ⬆️"; // lower placement number = better rank
       } else if (guessedNum < correctNum) {
-        value += " ⬆️";
+        value += " ⬇️";
       }
     }
 
