@@ -243,42 +243,6 @@ function updateQueenDatalist(selectedCountry) {
     });
 }
 
-["name", "season", "placement", "country"].forEach((attr) => {
-  const cell = document.createElement("td");
-  let value = guessed[attr];
-  let correctValue = correct[attr];
-
-  if (attr === "season") {
-    const guessedNum = parseInt(value.replace(/[^\d]/g, ""));
-    const correctNum = parseInt(correctValue.replace(/[^\d]/g, ""));
-    if (guessedNum > correctNum) {
-      value += " ⬆️";
-    } else if (guessedNum < correctNum) {
-      value += " ⬇️";
-    }
-  }
-
-  if (attr === "placement") {
-    const guessedNum = parseInt(value);
-    const correctNum = parseInt(correctValue);
-    if (guessedNum > correctNum) {
-      value += " ⬇️"; // lower placement is better
-    } else if (guessedNum < correctNum) {
-      value += " ⬆️";
-    }
-  }
-
-  // Style the cell based on correctness
-  if (value === correctValue) {
-    cell.style.backgroundColor = "#90ee90"; // green
-  } else {
-    cell.style.backgroundColor = "#f08080"; // red
-  }
-
-  cell.textContent = value;
-  row.appendChild(cell);
-});
-
 document.addEventListener("DOMContentLoaded", () => {
   // Setup initial datalist
   updateQueenDatalist("all");
