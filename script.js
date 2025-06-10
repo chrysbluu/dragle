@@ -58,8 +58,7 @@ function toggleMode() {
   const index = Math.abs(hash) % queenNames.length;
   return queenNames[index];
 }
-   else {
-    correctQueen = queenNames[Math.floor(Math.random() * queenNames.length)];
+   else {correctQueen = queenNames[Math.floor(Math.random() * queenNames.length)];
   }
 
   resetGame();
