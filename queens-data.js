@@ -1,5 +1,5 @@
 window.queens = {
-"Bebe Zahara Benet": { season: "1", placement: "1", country: "🇺🇸", image: "" },
+"Bebe Zahara Benet": { season: "1", placement: "1", country: "🇺🇸", image: "https://static.wikia.nocookie.net/logosrupaulsdragrace/images/4/40/BeBeZaharaBenetS1CastMug.png/revision/latest/scale-to-width-down/120?cb=20210901220954" },
 "Nina Flowers": { season: "1", placement: "2", country: "🇺🇸", image: "" },
 "Rebecca Glasscock": { season: "1", placement: "3", country: "🇺🇸", image: "" },
 "Shannel": { season: "1", placement: "4", country: "🇺🇸", image: "" },
