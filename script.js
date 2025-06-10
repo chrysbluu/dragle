@@ -49,15 +49,12 @@ function toggleMode() {
   document.getElementById("mode-toggle").innerText = dailyMode ? "Switch to Endless Mode" : "Switch to Daily Mode";
 
   if (dailyMode) {
-    function getDailyQueenName() {
-  const today = new Date().toISOString().split("T")[0]; // e.g. "2025-06-09"
-  let hash = 0;
-  for (let i = 0; i < today.length; i++) {
-    hash = today.charCodeAt(i) + ((hash << 5) - hash);
-    hash |= 0; // force to 32-bit integer
-  }
-  const index = Math.abs(hash) % queenNames.length;
-  return queenNames[index];
+    const today = new Date().toISOString().split('T')[0];
+    let seed = 0;
+    for (let i = 0; i < today.length; i++) {
+      seed += today.charCodeAt(i);
+    }
+    correctQueen = queenNames[seed % queenNames.length];
   } else {
     correctQueen = queenNames[Math.floor(Math.random() * queenNames.length)];
   }
