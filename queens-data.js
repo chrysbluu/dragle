@@ -272,7 +272,7 @@ window.queens = {
 "Shortgun": { season: "3", placement: "9", country: "🇹🇭", image: "" },
 "Kara Might": { season: "3", placement: "10", country: "🇹🇭", image: "" },
 "Srirasha Hotsauce": { season: "3", placement: "1", country: "🇹🇭", image: "" },
-"Pangina Heals": { season: "UKVTW1", placement: "6", country: "🇹🇭", image: "" },
+"Pangina Heals": { season: "1", placement: "6", country: "🇬🇧🌎", image: "" },
 "The Vivienne": { season: "1", placement: "1", country: "🇬🇧", image: "" },
 "Divina De Campo": { season: "1", placement: "2", country: "🇬🇧", image: "" },
 "Baga Chipz": { season: "1", placement: "3", country: "🇬🇧", image: "" },
