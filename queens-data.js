@@ -1,4 +1,4 @@
-const queens = {
+window.queens = {
 "Bebe Zahara Benet": { season: "US1", placement: "1", country: "🇺🇸", image: "" },
 "Nina Flowers": { season: "US1", placement: "2", country: "🇺🇸", image: "" },
 "Rebecca Glasscock": { season: "US1", placement: "3", country: "🇺🇸", image: "" },
