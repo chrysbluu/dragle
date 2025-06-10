@@ -481,7 +481,7 @@ const queens = {
 "Megui Yeillow": { season: "4", placement: "6", country: "🇪🇸", image: "" },
 "Angelita La Perversa": { season: "4", placement: "7", country: "🇪🇸", image: "" },
 "Miss Khristo": { season: "4", placement: "8", country: "🇪🇸", image: "" },
-"Kelly Passa?": { season: "4", placement: "9", country: "🇪🇸", image: "" },
+"Kelly Passa!?": { season: "4", placement: "9", country: "🇪🇸", image: "" },
  "Dita Dubois": { season: "4", placement: "10", country: "🇪🇸", image: "" },
 "Porca TheClubKid": { season: "4", placement: "11", country: "🇪🇸", image: "" },
 "Shani LeSanta": { season: "4", placement: "12", country: "🇪🇸", image: "" },
