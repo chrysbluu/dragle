@@ -457,7 +457,7 @@ window.queens = {
 "Diamante Merybrown": { season: "2", placement: "7", country: "🇪🇸", image: "" },
 "Onyx": { season: "2", placement: "8", country: "🇪🇸", image: "" },
 "Jota Carajota": { season: "2", placement: "9", country: "🇪🇸", image: "" },
-"Samantha Ballentines": { season: "2", placement: "10”, country: "🇪🇸", image: "" },
+"Samantha Ballentines": { season: "2", placement: "10", country: "🇪🇸", image: "" },
 "Ariel Rec": { season: "2", placement: "11", country: "🇪🇸", image: "" },
 "Marisa Prisa": { season: "3", placement: "12", country: "🇪🇸", image: "" },
 "Pitita": { season: "3", placement: "1", country: "🇪🇸", image: "" },
