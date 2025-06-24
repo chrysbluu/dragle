@@ -401,7 +401,6 @@ window.queens = {
 "Kita Mean": { season: "1", placement: "1", country: "🇦🇺", image: "" },
 "Art Simone": { season: "1", placement: "2", country: "🇦🇺", image: "" },
 "Karen From Finance": { season: "1", placement: "3/4", country: "🇦🇺", image: "" },
-"Scarlet Adams": { season: "1", placement: "3/4", country: "🇦🇺", image: "" },
 "Elektra Shock": { season: "1", placement: "5", country: "🇦🇺", image: "" },
 "Maxi Shield": { season: "1", placement: "6", country: "🇦🇺", image: "" },
 "Etcetera Etcetera": { season: "1", placement: "7", country: "🇦🇺", image: "" },
