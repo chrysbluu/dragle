@@ -116,9 +116,9 @@ row.appendChild(imgCell);
       const guessedNum = parseInt(value.replace(/[^\d]/g, ""));
       const correctNum = parseInt(correctValue.replace(/[^\d]/g, ""));
       if (guessedNum > correctNum) {
-        value += " ⬇️";
-      } else if (guessedNum < correctNum) {
         value += " ⬆️";
+      } else if (guessedNum < correctNum) {
+        value += " ⬇️";
       }
     }
 
