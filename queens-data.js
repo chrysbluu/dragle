@@ -31,7 +31,7 @@ window.queens = {
 "Phoenix": { season: "3", placement: "12", country: "🇺🇸", image: "" },
 "Ven D-Lite": { season: "3", placement: "13", country: "🇺🇸", image: "" },
 "Chad Michaels": { season: "4", placement: "2/3", country: "🇺🇸", image: "" },
-"Phi Phi O'Hara": { season: "4", placement: "2/3", country: "🇺🇸", image: "" },
+"Jaremi Carey": { season: "4", placement: "2/3", country: "🇺🇸", image: "" },
 "Latrice Royale": { season: "4", placement: "4", country: "🇺🇸", image: "" },
 "Kenya Michaels": { season: "4", placement: "5", country: "🇺🇸", image: "" },
 "Dida Ritz": { season: "4", placement: "6", country: "🇺🇸", image: "" },
